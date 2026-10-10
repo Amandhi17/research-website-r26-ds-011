@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sahaya | Multilingual Emergency Call &amp; SMS Triage &middot; R26-DS-11</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%232563eb%22/%3E%3Cpath d=%22M6 17h5l2.5-6 4 11 2.5-5H26%22 fill=%22none%22 stroke=%22white%22 stroke-width=%222.6%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E">
+  <meta name="description" content="Sahaya - AI based emergency call and SMS triage system for disaster response in Sri Lankan low resource local languages - SLIIT Research Project R26-DS-11.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Sinhala:wght@500;700&family=Noto+Sans+Tamil:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/theme.css">
+</head>
+<body>
+
+<!-- ============================ NAVIGATION ============================ -->
+<header class="nav" id="top">
+  <div class="nav-inner">
+    <a href="#home" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="24" height="24"><path d="M5 17h5l2.5-6 4 11 2.5-5H27" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="brand-text">Sahaya<small>R26-DS-11 &middot; Emergency Triage AI</small></span>
+    </a>
+
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="menu" class="menu" aria-label="Main">
+      <a href="#home">Home</a>
+      <div class="dropdown">
+        <button class="drop-btn" aria-expanded="false">Domain <span class="caret" aria-hidden="true"></span></button>
+        <div class="drop-menu">
+          <a href="#literature">Literature Survey</a>
+          <a href="#gap">Research Gap</a>
+          <a href="#problem">Research Problem</a>
+          <a href="#objectives">Research Objectives</a>
+          <a href="#methodology">Methodology</a>
+          <a href="#technologies">Technologies Used</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="drop-btn" aria-expanded="false">Milestones <span class="caret" aria-hidden="true"></span></button>
+        <div class="drop-menu">
+          <a href="#milestones" data-milestone="proposal">Project Proposal</a>
+          <a href="#milestones" data-milestone="checklist">Check List</a>
+          <a href="#milestones" data-milestone="pp1">Progress Presentation 1</a>
+          <a href="#milestones" data-milestone="pp2">Progress Presentation 2</a>
+          <a href="#milestones" data-milestone="thesis">Draft &amp; Final Thesis</a>
+          <a href="#milestones" data-milestone="website">Website</a>
+          <a href="#milestones" data-milestone="viva">Final Presentation &amp; Viva</a>
+          <a href="#milestones" data-milestone="paper">Research Paper</a>
+        </div>
+      </div>
+      <a href="#documents">Documents</a>
+      <a href="#presentations">Presentations</a>
+      <a href="#about">About Us</a>
+      <a href="#contact" class="menu-cta">Contact Us</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ============================ HOME ============================ -->
+<section id="home" class="hero">
+  <div class="hero-bg" aria-hidden="true"><span class="rain"></span><span class="spotlight"></span></div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">SLIIT Research Project &middot; IT4010 &middot; 2026</p>
+      <h1 class="brand-title">Sahaya</h1>
+      <h2 class="hero-sub">AI Based Emergency Call and SMS Triage System for Disaster Response in Sri Lankan Low Resource Local Languages</h2>
+      <p class="lede">From a panicked phone call or a broken SMS to one verified, prioritised incident &mdash; in
+        <span lang="si" class="script-si">සිංහල</span>, <span lang="ta" class="script-ta">தமிழ்</span>, English, <span class="script-si">Singlish</span> and <span class="script-ta">Tanglish</span>.</p>
+      <div class="hero-actions">
+        <a href="#literature" class="btn btn-outline"><span>Learn More</span><svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></a>
+        <a href="#documents" class="btn btn-ghost">Documents</a>
+      </div>
+      <ul class="lang-chips" aria-label="Supported language styles">
+        <li>Sinhala</li><li>Tamil</li><li>English</li><li>Singlish</li><li>Tanglish</li><li>Code-mixed</li>
+      </ul>
+    </div>
+    <!-- Hero visual: built in HTML/CSS, no image. Three reports in different languages are fused into one incident. -->
+    <div class="console" role="img" aria-label="Example: a Sinhala call, a Tamil SMS and a Singlish SMS about the same flood are understood, scored as High urgency and fused into one incident">
+      <div class="console-bar">
+        <span class="live-dot" aria-hidden="true"></span><span>Live intake</span>
+        <span class="console-time">3 reports &middot; 2 channels</span>
+      </div>
+
+      <ul class="feed">
+        <li class="msg m1">
+          <span class="ch ch-call" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg></span>
+          <div class="msg-body">
+            <p class="msg-meta">Call &middot; Sinhala</p>
+            <p class="msg-text" lang="si">වතුර ගෙදර ඇතුළට එනවා, උදව් කරන්න!</p>
+          </div>
+        </li>
+        <li class="msg m2">
+          <span class="ch ch-sms" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5Z"/></svg></span>
+          <div class="msg-body">
+            <p class="msg-meta">SMS &middot; Tamil</p>
+            <p class="msg-text" lang="ta">தண்ணீர் வீட்டுக்குள் வருகிறது, உதவி வேண்டும்!</p>
+          </div>
+        </li>
+        <li class="msg m3">
+          <span class="ch ch-sms" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5Z"/></svg></span>
+          <div class="msg-body">
+            <p class="msg-meta">SMS &middot; Singlish</p>
+            <p class="msg-text">gedara wathure yata wela, api 4 denek innawa</p>
+          </div>
+        </li>
+      </ul>
+
+      <ol class="stages" aria-hidden="true">
+        <li>Language</li><li>Clarify</li><li>Urgency</li><li>Fusion</li>
+      </ol>
+
+      <div class="incident">
+        <div class="inc-head">
+          <div>
+            <p class="inc-id">INC-0142 &middot; Fused incident</p>
+            <p class="inc-title">Flood &middot; Kegalle</p>
+          </div>
+          <span class="urgency">HIGH</span>
+        </div>
+        <dl class="inc-fields">
+          <div><dt>People</dt><dd>4</dd></div>
+          <div><dt>Trapped</dt><dd>Yes</dd></div>
+          <div><dt>Need</dt><dd>Rescue boat</dd></div>
+        </dl>
+        <div class="inc-match">
+          <span>P(same incident)</span>
+          <span class="meter" aria-hidden="true"><span></span></span>
+          <strong>0.93</strong>
+        </div>
+        <p class="inc-note">3 reports merged &middot; Call + SMS &middot; ready for dispatch</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="wrap intro-grid">
+    <div>
+      <h2 class="h-sm">About the project</h2>
+      <p>During floods, landslides and fires, people in Sri Lanka report emergencies by phone call and SMS, in Sinhala, Tamil, English, or a mix of them. Operators at the Disaster Management Centre (DMC) have to understand panicked, multilingual speech, judge how urgent each report really is, and notice when several people are reporting the same incident in completely different words. Today none of these three judgements is automated.</p>
+      <p>This project builds one integrated AI pipeline that does all three. A multilingual conversational agent asks the caller the right follow-up questions, an urgency model reads both the voice and the words, an SMS engine turns noisy text messages into structured reports, and an incident fusion engine merges every report about the same event into one verified incident on a live operator dashboard.</p>
+    </div>
+    <div class="stats" aria-label="Key results">
+      <div class="stat"><span class="stat-num">59</span><span class="stat-label">real DMC emergency calls used to validate urgency detection</span></div>
+      <div class="stat"><span class="stat-num">98.1%</span><span class="stat-label">precision when merging reports into one incident</span></div>
+      <div class="stat"><span class="stat-num">11 &rarr; 1</span><span class="stat-label">dangerous SMS under-triage cases (out of 26)</span></div>
+      <div class="stat"><span class="stat-num">100%</span><span class="stat-label">of clarification questions spoken in the caller's language</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ DOMAIN ============================ -->
+<section id="domain" class="section-head">
+  <div class="wrap">
+    <p class="eyebrow">Domain</p>
+    <h2>The research behind the system</h2>
+  </div>
+</section>
+
+<!-- Literature survey -->
+<section id="literature" class="section">
+  <div class="wrap">
+    <h3 class="sec-title"><span class="sec-num">01</span> Literature Survey</h3>
+    <div class="two-col">
+      <div class="prose">
+        <p>Research on emergency and crisis communication has mostly processed messages from a single channel, usually English social-media posts, and has treated classification, information extraction and de-duplication as separate tasks [1]. Sri Lankan emergency reporting is different: reports arrive at the same time by voice and SMS, in Sinhala, Tamil and English, and very often in romanised, code-mixed forms such as Singlish and Tanglish.</p>
+        <p>Multilingual pre-trained models make low-resource languages more reachable. XLM-RoBERTa [2] transfers to new languages with little labelled data, LaBSE [3] maps sentences from different languages into one embedding space, mT5 [4] gives a multilingual text-to-text generator, and mDeBERTaV3 [5] is a strong multilingual encoder for inference tasks. Whisper [6] brings multilingual speech recognition, but its accuracy drops on low-resource languages, noisy telephone audio and code-mixed speech, which is exactly the setting of an emergency hotline.</p>
+        <p>Urgency in a call is carried not only by words but by the voice. Standard acoustic parameter sets such as GeMAPS [7] (pitch, jitter, energy, speaking rate) are well studied for emotion and stress recognition, yet emergency-call triage systems still rely mainly on the transcript. On the operational side, the Medical Priority Dispatch System (MPDS) [8] is the established protocol for remote triage from a reported description, which suits SMS and phone triage better than field protocols that need physical assessment.</p>
+        <p>Large language models make extraction from messy text possible, but they can invent facts that were never said [9], a serious risk when the output decides who is rescued first. Finally, deciding whether two reports describe the same incident is a form of event coreference, normally evaluated with B-cubed precision and recall [10]; existing work matches reports within one source and one language, not across calls and SMS in several languages.</p>
+      </div>
+      <aside class="refs">
+        <h4>References</h4>
+        <ol>
+          <li>M. Imran, C. Castillo, F. Diaz and S. Vieweg, &ldquo;Processing social media messages in mass emergency: A survey,&rdquo; <em>ACM Computing Surveys</em>, vol. 47, no. 4, 2015.</li>
+          <li>A. Conneau <em>et al.</em>, &ldquo;Unsupervised cross-lingual representation learning at scale,&rdquo; in <em>Proc. ACL</em>, 2020.</li>
+          <li>F. Feng, Y. Yang, D. Cer, N. Arivazhagan and W. Wang, &ldquo;Language-agnostic BERT sentence embedding,&rdquo; in <em>Proc. ACL</em>, 2022.</li>
+          <li>L. Xue <em>et al.</em>, &ldquo;mT5: A massively multilingual pre-trained text-to-text transformer,&rdquo; in <em>Proc. NAACL</em>, 2021.</li>
+          <li>P. He, J. Gao and W. Chen, &ldquo;DeBERTaV3: Improving DeBERTa using ELECTRA-style pre-training with gradient-disentangled embedding sharing,&rdquo; in <em>Proc. ICLR</em>, 2023.</li>
+          <li>A. Radford <em>et al.</em>, &ldquo;Robust speech recognition via large-scale weak supervision,&rdquo; in <em>Proc. ICML</em>, 2023.</li>
+          <li>F. Eyben <em>et al.</em>, &ldquo;The Geneva minimalistic acoustic parameter set (GeMAPS) for voice research and affective computing,&rdquo; <em>IEEE Trans. Affective Computing</em>, vol. 7, no. 2, 2016.</li>
+          <li>J. J. Clawson and K. B. Dernocoeur, <em>Principles of Emergency Medical Dispatch</em>, Priority Press (Medical Priority Dispatch System).</li>
+          <li>Z. Ji <em>et al.</em>, &ldquo;Survey of hallucination in natural language generation,&rdquo; <em>ACM Computing Surveys</em>, vol. 55, no. 12, 2023.</li>
+          <li>A. Bagga and B. Baldwin, &ldquo;Algorithms for scoring coreference chains,&rdquo; in <em>Proc. LREC Workshop on Linguistic Coreference</em>, 1998.</li>
+        </ol>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- Research gap -->
+<section id="gap" class="section alt">
+  <div class="wrap">
+    <h3 class="sec-title"><span class="sec-num">02</span> Research Gap</h3>
+    <p class="sec-lede">Existing emergency-AI work handles the pieces in isolation: urgency detection alone, or single-channel intake alone. There is still no integrated approach that combines multilingual voice and SMS intake with cross-source de-duplication for low-resource disaster response.</p>
+    <div class="cards cards-4">
+      <article class="card">
+        <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v10H8l-4 4V5Z"/></svg></div>
+        <h4>Low-resource, code-mixed language</h4>
+        <p>Speech and text models are trained mostly on English. Sinhala, Tamil, Singlish and Tanglish emergency speech and SMS are barely covered.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 12h3l3-7 4 14 3-7h5"/></svg></div>
+        <h4>Urgency from words only</h4>
+        <p>Call triage relies on the transcript. Vocal stress is ignored, even though it survives when speech recognition fails.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h10l4 4v12H5V4Z"/><path d="M9 12h6M9 16h4"/></svg></div>
+        <h4>Single-channel intake</h4>
+        <p>Voice and SMS reports are processed separately, with no shared report format and no safe use of LLMs on noisy SMS.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="7" cy="8" r="3"/><circle cx="17" cy="8" r="3"/><path d="M7 11v3a5 5 0 0 0 10 0v-3"/></svg></div>
+        <h4>No cross-source de-duplication</h4>
+        <p>Reports are matched within one source and one language. Many callers describing one incident in different words are not fused.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Research problem -->
+<section id="problem" class="section">
+  <div class="wrap two-col two-col-media">
+    <div>
+      <h3 class="sec-title"><span class="sec-num">03</span> Research Problem</h3>
+      <blockquote class="question">How can multilingual emergency calls and SMS in Sri Lanka's low-resource local languages be understood, prioritised by urgency, and fused into verified incidents automatically, so that operators can dispatch faster without duplicate or missed responses?</blockquote>
+      <p>During disasters such as floods and fires, emergency reports arrive through calls and SMS in Sinhala, Tamil and English, and multiple people may report the same incident in completely different words. Each operator must:</p>
+      <ul class="ticks">
+        <li>understand multilingual, sometimes panicked speech;</li>
+        <li>judge how urgent the report really is;</li>
+        <li>detect whether it duplicates an incident already reported.</li>
+      </ul>
+      <p class="callout"><strong>Pain point:</strong> none of these three judgements is automated today. This can lead to duplicate dispatches for the same incident, or a critical call receiving the same attention as a routine one.</p>
+    </div>
+    <figure class="media-frame">
+      <img src="assets/img/problem.jpg" alt="Problem, stakeholders and pain point: Sinhala calls, SMS and Tamil calls all reach the operator with no automation, producing one incident with three uncoordinated reports" loading="lazy" width="1400" height="933">
+      <figcaption>Problem, stakeholders and pain point (Progress Presentation 2)</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- Objectives -->
+<section id="objectives" class="section alt">
+  <div class="wrap">
+    <h3 class="sec-title"><span class="sec-num">04</span> Research Objectives</h3>
+    <div class="main-objective">
+      <span class="tag">Main objective</span>
+      <p>To design, build and validate an integrated AI triage system that turns multilingual emergency calls and SMS into prioritised, de-duplicated and verified incident records for disaster response in Sri Lanka.</p>
+    </div>
+    <h4 class="sub-title">Specific objectives</h4>
+    <div class="cards cards-4 objectives">
+      <article class="card comp c1">
+        <span class="comp-badge">C1</span>
+        <h4>Multilingual Emergency Conversational AI System for Rapid Clarification</h4>
+        <p>Turn multilingual emergency calls into dispatch-ready reports by asking one missing item at a time, with an explicit affect- and uncertainty-aware clarification policy that is auditable and bounded.</p>
+      </article>
+      <article class="card comp c2">
+        <span class="comp-badge">C2</span>
+        <h4>Multimodal Urgency Detection Using Prosodic and Conversational Cues</h4>
+        <p>Classify caller urgency from voice and text, validated honestly on real government disaster calls, not only simulated data.</p>
+      </article>
+      <article class="card comp c3">
+        <span class="comp-badge">C3</span>
+        <h4>Low-Bandwidth SMS Emergency Intelligence for Disaster Response</h4>
+        <p>Extract incident type, location, people count and resources needed from noisy SMS in six language styles, with safety nets against hallucination and priority assigned by the MPDS dispatch standard.</p>
+      </article>
+      <article class="card comp c4">
+        <span class="comp-badge">C4</span>
+        <h4>Multi-Source Urgency-Based Incident Fusion, Unified Incident Records and Real-Time Operator Dashboard</h4>
+        <p>Decide, report by report, whether a new emergency call or SMS belongs to an open incident, with a calibrated probability, a cost-aware MERGE / SEPARATE decision and an auditable evidence trail on a live operator dashboard.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Methodology -->
+<section id="methodology" class="section">
+  <div class="wrap">
+    <h3 class="sec-title"><span class="sec-num">05</span> Methodology</h3>
+    <p class="sec-lede">Four components run as one live pipeline. Calls and SMS are turned into the same structured report format, scored for urgency, and fused into incidents shown on the operator dashboard.</p>
+
+    <ol class="flow" aria-label="System flow">
+      <li><span>1</span>Caller / SMS input</li>
+      <li><span>2</span>Clarification &amp; SMS intake</li>
+      <li><span>3</span>Urgency scoring</li>
+      <li><span>4</span>Incident fusion</li>
+      <li><span>5</span>Operator dashboard</li>
+    </ol>
+
+    <figure class="media-frame wide">
+      <img src="assets/img/architecture.jpg" alt="Solution overview and architecture: caller or SMS input, multilingual call intake and SMS parsing into a structured report, urgency scoring, incident fusion, and the operator dashboard" loading="lazy" width="1600" height="900">
+      <figcaption>Figure 1. High-level system architecture</figcaption>
+    </figure>
+
+    <div class="method-grid">
+      <article class="method comp c1">
+        <header><span class="comp-badge">C1</span><h4>Multilingual Emergency Conversational AI System for Rapid Clarification</h4></header>
+        <ul>
+          <li>A closed-loop spoken dialogue of six cooperating agents: speech recognition, language and code-mix identification, relevance-gated entity extraction, protocol-aligned readiness, adaptive clarification, and language-routed speech synthesis.</li>
+          <li>An explicit finite-state clarification policy uses dialogue state, protocol readiness, caller affect and uncertainty to choose the next action (ask, confirm, calm, redirect or end), instead of a black-box generative model.</li>
+          <li>A numeral composer reads house numbers spoken as Sinhala number words (up to the hundreds), and a structured address parser joins house number, road and town.</li>
+          <li>Context-aware questions acknowledge what the caller already said and ask for the one missing part, with field-specific ask limits.</li>
+          <li>A finite off-topic redirect with an emergency veto, so a real emergency is never dismissed as a social call; questions are spoken back in the caller's own language.</li>
+        </ul>
+        <p class="result"><strong>Result:</strong> question diversity 0.040 &rarr; 0.222 with a 100% safety pass rate; critically incomplete reports 91.4% &rarr; 74.1%; reply in the caller's language 41% &rarr; 100%.</p>
+        <details class="more">
+          <summary>More about this component</summary>
+          <div class="more-body">
+            <p><strong>Why it is hard.</strong> Callers speak Sinhala, Tamil, English or a mix, often while frightened, and give incomplete or uncertain information. Fixed question templates ask the same thing again and again, handle spoken numbers poorly (such as a house number said as Sinhala words), and cannot manage social or off-topic calls safely.</p>
+            <p><strong>Research questions.</strong></p>
+            <ol class="rq">
+              <li>Does a protocol-aware, affect- and uncertainty-aware policy produce more varied and better-targeted clarification questions than fixed templates?</li>
+              <li>Can a composed numeral and structured address recover house numbers that span-based extraction misses, without creating false people counts?</li>
+              <li>Can finite off-topic control separate social and status-inquiry calls from emergencies without a false information response on social calls?</li>
+            </ol>
+            <p><strong>Data.</strong> 510 simulated multilingual emergency calls (502 call files compared with a fixed-template baseline), plus curated gold sets and regression tests for each part.</p>
+            <table class="mini-table">
+              <caption>Measured results</caption>
+              <tbody>
+                <tr><th scope="row">Entity extraction F1</th><td>0.278 (BiLSTM-CRF) &rarr; 0.429 (fine-tuned XLM-R)</td></tr>
+                <tr><th scope="row">Relevance F1</th><td>0.783 &rarr; 0.819</td></tr>
+                <tr><th scope="row">Question diversity</th><td>0.040 &rarr; 0.222, 100% safety pass rate</td></tr>
+                <tr><th scope="row">Critically incomplete reports</th><td>91.4% &rarr; 74.1%</td></tr>
+                <tr><th scope="row">Off-topic router</th><td>90.4% accuracy; no false information reply in 30 social calls</td></tr>
+                <tr><th scope="row">Numerals / address / triage</th><td>19 of 19 / 10 of 10 / 18 of 20 correct</td></tr>
+                <tr><th scope="row">Reply in the caller's language</th><td>41.0% &rarr; 100%</td></tr>
+              </tbody>
+            </table>
+            <p><strong>Limitations.</strong> The gold sets are small and were written by the author, so independent annotation is still needed. Question diversity is a proxy for quality, not an expert rating, and the upstream entity model (F1 0.43) limits location and people recall.</p>
+          </div>
+        </details>
+      </article>
+      <article class="method comp c2">
+        <header><span class="comp-badge">C2</span><h4>Multimodal Urgency Detection Using Prosodic and Conversational Cues</h4></header>
+        <ul>
+          <li>Audio cleaned (noise reduction, 16 kHz, silence trim); on real calls, speaker diarization keeps only the caller's voice.</li>
+          <li>Acoustic branch: 91 prosodic and spectral features (MFCCs, pitch, jitter, energy, speaking rate).</li>
+          <li>Conversational branch: keyword, context, repetition and transcript-quality features from the call transcript.</li>
+          <li>Two Random Forest models (acoustic-only and text-only) combined by late fusion into High / Medium / Low, per caller turn and per call.</li>
+          <li>Developed on 267 simulated calls, then tested independently on 59 authentic Disaster Management Centre recordings that played no part in development.</li>
+        </ul>
+        <p class="result"><strong>Result:</strong> on real DMC calls the final late-fusion model gave the strongest High-urgency recall (46.1%); 67.3% accuracy on fire / flood calls that match the training scope.</p>
+        <details class="more">
+          <summary>More about this component</summary>
+          <div class="more-body">
+            <p><strong>Why it is hard.</strong> A caller in a life-threatening situation and one asking a routine question can use almost the same words but sound completely different. Labelled emergency speech in Sinhala and Tamil is scarce, and a model that looks good on simulated calls may not hold up on real telephone audio.</p>
+            <p><strong>Research questions.</strong></p>
+            <ol class="rq">
+              <li>How well can acoustic-prosodic and textual / conversational information, each on its own, classify the urgency of a call?</li>
+              <li>Does multimodal fusion beat either modality alone, and does early versus late fusion matter?</li>
+              <li>How well does a classifier built on simulated calls generalise to authentic recordings?</li>
+              <li>What measurable factors explain the gap between simulated and authentic performance?</li>
+            </ol>
+            <p><strong>Data.</strong> 267 role-played fire and flood calls (High 130 / Medium 82 / Low 55, two annotators) for development, and 59 authentic DMC recordings from the 2025 floods and landslides for independent evaluation.</p>
+            <table class="mini-table">
+              <caption>Measured results (macro-F1 unless stated)</caption>
+              <tbody>
+                <tr><th scope="row">Simulated corpus (5-fold CV)</th><td>acoustic 0.618 &middot; text 0.397 &middot; early fusion 0.630 &middot; late fusion 0.613</td></tr>
+                <tr><th scope="row">Real DMC calls, early fusion</th><td>0.326, close to the majority-class baseline (0.187)</td></tr>
+                <tr><th scope="row">Real DMC calls, text-only</th><td>0.449 (rose from 0.397 on simulated calls)</td></tr>
+                <tr><th scope="row">Final late fusion, all 59 DMC calls</th><td>43.7% accuracy &middot; 0.428 &middot; High-urgency recall 46.1%</td></tr>
+                <tr><th scope="row">Final late fusion, 11 fire / flood calls</th><td>67.3% accuracy &middot; 0.630 &middot; High-urgency recall 65.7%</td></tr>
+              </tbody>
+            </table>
+            <p><strong>Key finding.</strong> Simulated-corpus results overstate real-world performance, and the best model in development (early fusion) was the wrong choice for authentic calls. A domain-shift analysis (Cohen&rsquo;s d) shows the acoustic features shift far more between the corpora than the text features.</p>
+            <p><strong>Limitations.</strong> Speech recognition on real telephone audio is the main remaining weakness, the fire / flood subset is only 11 calls, and the simulated corpus covers fire and flood scenarios only.</p>
+          </div>
+        </details>
+      </article>
+      <article class="method comp c3">
+        <header><span class="comp-badge">C3</span><h4>Low-Bandwidth SMS Emergency Intelligence for Disaster Response</h4></header>
+        <ul>
+          <li>Extracts four fields (incident type, location, people count, resources needed) from SMS in English, Sinhala, Tamil, Singlish, Tanglish and mixed script, with a fine-tuned multilingual mT5-small model.</li>
+          <li>Hybrid multi-agent design: an LLM only where rules demonstrably fail (messy extraction, distress, a severity safety net); question wording, memory, answer parsing and priority stay deterministic, auditable and free to run.</li>
+          <li>Safety nets: every extracted field must quote the original message, NLI entailment checks for hallucination, and a continuous 0&ndash;100 risk score.</li>
+          <li>Fatigue detection switches a struggling sender to simple numbered choices; distress detection calms and re-asks instead of storing &ldquo;pls&rdquo; as a location.</li>
+          <li>Priority follows the Medical Priority Dispatch System (ECHO to OMEGA) and feeds a dispatch queue sorted by urgency.</li>
+        </ul>
+        <p class="result"><strong>Result:</strong> 82.76% incident accuracy; hallucination detection F1 0.97; dangerous under-triage cut from 11 to 1 of 26 cases.</p>
+        <details class="more">
+          <summary>More about this component</summary>
+          <div class="more-body">
+            <p><strong>Why it is hard.</strong> Emergency SMS arrive in six overlapping language styles and are very noisy. Across the 864-message dataset, broken grammar affects 83.7% of messages, far more than spelling errors (37.2%) or code-mixing (40.4%). Hand-written rules and keyword lists could not keep up with this variation, while calling an LLM for everything is slow, costly and can invent facts.</p>
+            <p><strong>Objectives.</strong></p>
+            <ol class="rq">
+              <li>Fine-tune a multilingual mT5 model to extract structured incident information across all six language styles.</li>
+              <li>Characterise the noise in emergency SMS and skip cleaning stages a message does not need.</li>
+              <li>Build safety nets (NLI verification, risk scoring, distress detection) for what the model might miss.</li>
+              <li>Apply a real remote-triage standard (MPDS) to multilingual SMS instead of an arbitrary score.</li>
+              <li>Keep every agent that does not need an LLM deterministic and free to run.</li>
+            </ol>
+            <p><strong>Contributions.</strong> Noise Taxonomy &middot; Adaptive Router &middot; hallucination Risk Score &middot; 500-example hallucination benchmark &middot; cross-model verification &middot; fatigue-aware question mode &middot; distress detection &middot; multilingual MPDS keywords with an LLM safety net that can only raise priority.</p>
+            <table class="mini-table">
+              <caption>Measured results</caption>
+              <tbody>
+                <tr><th scope="row">Incident type (fine-tuned mT5-small)</th><td>82.76% on 87 held-out messages</td></tr>
+                <tr><th scope="row">Adaptive Router</th><td>58.3% fewer LLM calls (2,592 &rarr; 1,080)</td></tr>
+                <tr><th scope="row">Hallucination detection</th><td>NLI F1 0.97 vs content-word overlap 0.92 and embeddings 0.77</td></tr>
+                <tr><th scope="row">MPDS on reworded messages</th><td>57.7% &rarr; 73.1% with the LLM safety net</td></tr>
+                <tr><th scope="row">Dangerous under-triage</th><td>11 &rarr; 1 of 26 cases</td></tr>
+                <tr><th scope="row">Distress detection</th><td>F1 1.00 on a 24-example benchmark</td></tr>
+              </tbody>
+            </table>
+            <p><strong>Limitations.</strong> Location extraction is weak because only about 5% of messages name a real place. One reworded life-threat case is still under-triaged, and the Sinhala / Tamil keyword translations still need a native-speaker review.</p>
+          </div>
+        </details>
+      </article>
+      <article class="method comp c4">
+        <header><span class="comp-badge">C4</span><h4>Multi-Source Urgency-Based Incident Fusion, Unified Incident Records and Real-Time Operator Dashboard</h4></header>
+        <ul>
+          <li>Each call or SMS becomes one reconciled record from three sources (upstream fields, question-anchored recovery and a distilled mT5-small extractor). The caller's words are never translated or rewritten.</li>
+          <li>Four independently learned channels score the report against every open incident: cross-script place comparison, per-incident-type time decay, a fine-tuned LaBSE encoder, and a fine-tuned mDeBERTa evidence judge that separates contradictions from count differences.</li>
+          <li>Gradient boosting fuses the channels into a calibrated P(same incident). MERGE only above a threshold set by a 3:1 cost of false merges to false splits; uncertain and ambiguous cases are flagged for review.</li>
+          <li>Reports are matched against the whole incident's pooled evidence, not one earlier report. Every merge carries an evidence trail on the live incident dashboard.</li>
+        </ul>
+        <p class="result"><strong>Result:</strong> 0.9% false merges (merge precision 98.1%) on the test set; incident-level matching cut false splits from 24.0% to 10.7%.</p>
+        <details class="more">
+          <summary>More about this component</summary>
+          <div class="more-body">
+            <p><strong>Why it is hard.</strong> The same place can be written in different scripts (<span lang="si">14 pansala para gampaha</span> and <span lang="si">14 පන්සල පාර ගම්පල</span> are one address), while two different emergencies can differ by a single house number on the same road. Merging two real emergencies can leave one without a response, so a false merge is treated as three times worse than a false split.</p>
+            <p><strong>Research questions.</strong></p>
+            <ol class="rq">
+              <li>Can learned models compare place descriptions across Sinhala, Tamil and Latin script when geocoding is unreliable?</li>
+              <li>Does an evidence-level judge add information beyond overall semantic similarity?</li>
+              <li>Does matching against an incident's accumulated evidence reduce false splits without increasing false merges?</li>
+              <li>What trade-off between false merges, false splits and review load does a cost-based threshold give?</li>
+            </ol>
+            <p><strong>Nine steps.</strong> Input understanding &rarr; evidence pool &rarr; geography &rarr; time &rarr; semantic similarity (5A) and evidence matching (5B) &rarr; fusion &rarr; decision &rarr; incident record &rarr; revision and ambiguity flag.</p>
+            <p><strong>Data.</strong> A purpose-built corpus of 535 multilingual call and SMS reports, split by incident (DEV 112 / TEST 115 reports), with hard &ldquo;trap&rdquo; pairs such as adjacent houses on the same road. Every setting was chosen on DEV with adoption rules written in advance; TEST was reported once.</p>
+            <table class="mini-table">
+              <caption>Live configuration on the test set</caption>
+              <tbody>
+                <tr><th scope="row">False merges</th><td>0.9% of reports</td></tr>
+                <tr><th scope="row">Merge precision</th><td>98.1%</td></tr>
+                <tr><th scope="row">Link recall</th><td>70.7% (84.0% at 1.7% false merges without the no-location rule)</td></tr>
+                <tr><th scope="row">False splits, report vs incident matching</th><td>24.0% &rarr; 10.7%</td></tr>
+                <tr><th scope="row">Google Places within 1 km</th><td>53&ndash;58% for Sinhala / Tamil script vs 83% for Latin script</td></tr>
+                <tr><th scope="row">Reply time</th><td>about 4 s on a laptop CPU (20 s budget); no paid API needed at run time</td></tr>
+              </tbody>
+            </table>
+            <p><strong>Limitations.</strong> Results come from a simulated corpus, not real hotline traffic, so they are development estimates. Evaluation sets are small, and a study with real dispatchers is the main future work.</p>
+          </div>
+        </details>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Technologies -->
+<section id="technologies" class="section alt">
+  <div class="wrap">
+    <h3 class="sec-title"><span class="sec-num">06</span> Technologies Used</h3>
+    <ul class="tech-logos">
+      <li class="tech-item">
+        <span class="tech-logo"><img src="https://cdn.simpleicons.org/python" alt="" width="56" height="56" loading="lazy"></span>
+        <p>Python</p>
+      </li>
+      <li class="tech-item">
+        <span class="tech-logo"><img src="https://cdn.simpleicons.org/pytorch" alt="" width="56" height="56" loading="lazy"></span>
+        <p>PyTorch</p>
+      </li>
+      <li class="tech-item">
+        <span class="tech-logo"><img src="https://cdn.simpleicons.org/huggingface" alt="" width="56" height="56" loading="lazy"></span>
+        <p>Hugging Face</p>
+      </li>
+      <li class="tech-item">
+        <span class="tech-logo"><img src="https://cdn.simpleicons.org/scikitlearn" alt="" width="56" height="56" loading="lazy"></span>
+        <p>scikit-learn</p>
+      </li>
+      <li class="tech-item">
+        <span class="tech-logo drawn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M18 15l.8 2.2L21 18l-2.2.8L18 21l-.8-2.2L15 18l2.2-.8z"/></svg></span>
+        <p>OpenAI (Whisper, GPT-4o-mini)</p>
+      </li>
+      <li class="tech-item">
+        <span class="tech-logo"><img src="https://cdn.simpleicons.org/numpy" alt="" width="56" height="56" loading="lazy"></span>
+        <p>NumPy</p>
+      </li>
+      <li class="tech-item">
+        <span class="tech-logo"><img src="https://cdn.simpleicons.org/scipy" alt="" width="56" height="56" loading="lazy"></span>
+        <p>SciPy</p>
+      </li>
+      <li class="tech-item">
+        <span class="tech-logo"><img src="https://cdn.simpleicons.org/pandas" alt="" width="56" height="56" loading="lazy"></span>
+        <p>pandas</p>
+      </li>
+      <li class="tech-item">
+        <span class="tech-logo"><img src="https://cdn.simpleicons.org/jupyter" alt="" width="56" height="56" loading="lazy"></span>
+        <p>Jupyter</p>
+      </li>
+      <li class="tech-item">
+        <span class="tech-logo"><img src="https://cdn.simpleicons.org/googlecolab" alt="" width="56" height="56" loading="lazy"></span>
+        <p>Google Colab</p>
+      </li>
+      <li class="tech-item">
+        <span class="tech-logo"><img src="https://cdn.simpleicons.org/flask" alt="" width="56" height="56" loading="lazy"></span>
+        <p>Flask</p>
+      </li>
+      <li class="tech-item">
+        <span class="tech-logo"><img src="https://cdn.simpleicons.org/pydantic" alt="" width="56" height="56" loading="lazy"></span>
+        <p>Pydantic</p>
+      </li>
+      <li class="tech-item">
+        <span class="tech-logo drawn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg></span>
+        <p>Twilio (Voice &amp; SMS)</p>
+      </li>
+      <li class="tech-item">
+        <span class="tech-logo"><img src="https://cdn.simpleicons.org/googlemaps" alt="" width="56" height="56" loading="lazy"></span>
+        <p>Google Places</p>
+      </li>
+      <li class="tech-item">
+        <span class="tech-logo"><img src="https://cdn.simpleicons.org/leaflet" alt="" width="56" height="56" loading="lazy"></span>
+        <p>Leaflet</p>
+      </li>
+      <li class="tech-item">
+        <span class="tech-logo"><img src="https://cdn.simpleicons.org/git" alt="" width="56" height="56" loading="lazy"></span>
+        <p>Git</p>
+      </li>
+      <li class="tech-item">
+        <span class="tech-logo"><img src="https://cdn.simpleicons.org/github" alt="" width="56" height="56" loading="lazy"></span>
+        <p>GitHub</p>
+      </li>
+      <li class="tech-item">
+        <span class="tech-logo"><img src="https://cdn.simpleicons.org/pytest" alt="" width="56" height="56" loading="lazy"></span>
+        <p>pytest</p>
+      </li>
+    </ul>
+
+    <div class="tech-models">
+      <div class="tech-group-row">
+        <h4>Language &amp; speech models</h4>
+        <ul class="chips"><li>Whisper small / base</li><li>Fine-tuned Whisper-small (Sinhala)</li><li>faster-whisper (CTranslate2)</li><li>XLM-RoBERTa base</li><li>LaBSE</li><li>mDeBERTa-v3 base</li><li>mT5-small</li><li>multilingual-MiniLMv2 (NLI)</li><li>GPT-4o-mini</li><li>GPT-4o</li><li>Gemini 2.5 Flash</li><li>pyannote speaker-diarization 3.1</li></ul>
+      </div>
+      <div class="tech-group-row">
+        <h4>Speech synthesis</h4>
+        <ul class="chips"><li>Piper TTS</li><li>MMS-TTS</li><li>Edge-TTS</li><li>gTTS</li><li>OpenAI TTS</li></ul>
+      </div>
+      <div class="tech-group-row">
+        <h4>Classical ML &amp; baselines</h4>
+        <ul class="chips"><li>Random Forest</li><li>SMOTE (imbalanced-learn)</li><li>Gradient Boosting</li><li>Logistic Regression</li><li>SVM</li><li>TF-IDF</li><li>CRF (sklearn-crfsuite)</li><li>BiLSTM-CRF (pytorch-crf)</li></ul>
+      </div>
+      <div class="tech-group-row">
+        <h4>Audio &amp; text processing</h4>
+        <ul class="chips"><li>librosa</li><li>soundfile</li><li>sounddevice</li><li>noisereduce</li><li>deep-translator</li><li>indic-transliteration</li><li>langdetect</li><li>symspellpy</li><li>emoji</li><li>rapidfuzz</li></ul>
+      </div>
+      <div class="tech-group-row">
+        <h4>Training &amp; evaluation</h4>
+        <ul class="chips"><li>HF Datasets</li><li>HF Evaluate</li><li>HF Accelerate</li><li>sentence-transformers</li><li>seqeval</li><li>jiwer (WER / CER)</li><li>SHAP</li><li>Matplotlib &amp; Seaborn</li><li>joblib</li></ul>
+      </div>
+      <div class="tech-group-row">
+        <h4>Data, APIs &amp; storage</h4>
+        <ul class="chips"><li>Flask-CORS</li><li>python-dotenv</li><li>openpyxl</li><li>GeoNames gazetteer</li><li>OpenStreetMap</li><li>JSON / JSONL stores</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ MILESTONES ============================ -->
+<section id="milestones" class="section">
+  <div class="wrap">
+    <p class="eyebrow">Milestones</p>
+    <h2>Timeline in Brief</h2>
+    <p class="sec-lede">2026 Regular Batch timeline. Choose an assessment from the list to see its details.</p>
+
+    <div class="milestone-picker">
+      <label for="milestone-select">Assessment</label>
+      <select id="milestone-select">
+        <option value="proposal">Project Proposal</option>
+        <option value="checklist">Check List</option>
+        <option value="pp1">Progress Presentation 1</option>
+        <option value="pp2">Progress Presentation 2</option>
+        <option value="thesis">Draft &amp; Final Thesis</option>
+        <option value="website">Website</option>
+        <option value="viva">Final Presentation &amp; Viva</option>
+        <option value="paper">Research Paper</option>
+      </select>
+    </div>
+
+    <!-- To fill in marks: set data-marks="6" (a number, no % sign) on each <li>. The bars and totals update automatically. -->
+    <ol class="timeline">
+      <li class="ms done" data-id="proposal" data-marks="12">
+        <span class="ms-icon" aria-hidden="true"></span>
+        <div class="ms-copy">
+          <p class="ms-tag">Mar 2026</p>
+          <h4>Project Proposal</h4>
+          <p>Proposal document submitted and presented in March to get the research topic, scope and plan approved.</p>
+          <p class="ms-marks"><strong>Marks Allocated :</strong> <span class="marks-val">TBC</span><span class="status">Completed</span></p>
+          <div class="ms-progress" aria-hidden="true"><span class="pb-prev"></span><span class="pb-cur"></span></div>
+        </div>
+      </li>
+      <li class="ms done" data-id="checklist" data-marks="4">
+        <span class="ms-icon" aria-hidden="true"></span>
+        <div class="ms-copy">
+          <p class="ms-tag">May 2026</p>
+          <h4>Check List, Status Documents &amp; Logbook</h4>
+          <p>Check list and status documents 1 &amp; 2 confirming each member's progress against the planned work, together with the research logbook. A final check list follows in October.</p>
+          <p class="ms-marks"><strong>Marks Allocated :</strong> <span class="marks-val">TBC</span><span class="status">Completed</span></p>
+          <div class="ms-progress" aria-hidden="true"><span class="pb-prev"></span><span class="pb-cur"></span></div>
+        </div>
+      </li>
+      <li class="ms done" data-id="pp1" data-marks="15">
+        <span class="ms-icon" aria-hidden="true"></span>
+        <div class="ms-copy">
+          <p class="ms-tag">May 2026</p>
+          <h4>Progress Presentation 1</h4>
+          <p>Reviews about 50% completion of the project and reveals gaps or inconsistencies in the design and requirements.</p>
+          <p class="ms-marks"><strong>Marks Allocated :</strong> <span class="marks-val">TBC</span><span class="status">Completed</span></p>
+          <div class="ms-progress" aria-hidden="true"><span class="pb-prev"></span><span class="pb-cur"></span></div>
+        </div>
+      </li>
+      <li class="ms done" data-id="pp2" data-marks="18">
+        <span class="ms-icon" aria-hidden="true"></span>
+        <div class="ms-copy">
+          <p class="ms-tag">Aug &ndash; Sep 2026</p>
+          <h4>Progress Presentation 2</h4>
+          <p>Reviews about 90% completion with a live demonstration of the integrated system: a multilingual call, clarification, urgency scoring and automatic fusion with an SMS report on the operator console.</p>
+          <p class="ms-marks"><strong>Marks Allocated :</strong> <span class="marks-val">TBC</span><span class="status">Completed</span></p>
+          <div class="ms-progress" aria-hidden="true"><span class="pb-prev"></span><span class="pb-cur"></span></div>
+        </div>
+      </li>
+      <li class="ms" data-id="thesis" data-marks="19">
+        <span class="ms-icon" aria-hidden="true"></span>
+        <div class="ms-copy">
+          <p class="ms-tag">Oct 2026</p>
+          <h4>Draft &amp; Final Thesis</h4>
+          <p>Draft and final thesis submissions in October, covering the group and individual contributions.</p>
+          <p class="ms-marks"><strong>Marks Allocated :</strong> <span class="marks-val">TBC</span><span class="status upcoming">Upcoming</span></p>
+          <div class="ms-progress" aria-hidden="true"><span class="pb-prev"></span><span class="pb-cur"></span></div>
+        </div>
+      </li>
+      <li class="ms" data-id="website" data-marks="2">
+        <span class="ms-icon" aria-hidden="true"></span>
+        <div class="ms-copy">
+          <p class="ms-tag">Oct 2026</p>
+          <h4>Website</h4>
+          <p>Website submission and website evaluation in October. The website promotes the project and gives access to all its documents.</p>
+          <p class="ms-marks"><strong>Marks Allocated :</strong> <span class="marks-val">TBC</span><span class="status upcoming">Upcoming</span></p>
+          <div class="ms-progress" aria-hidden="true"><span class="pb-prev"></span><span class="pb-cur"></span></div>
+        </div>
+      </li>
+      <li class="ms" data-id="viva" data-marks="20">
+        <span class="ms-icon" aria-hidden="true"></span>
+        <div class="ms-copy">
+          <p class="ms-tag">Oct 2026</p>
+          <h4>Final Presentation &amp; Viva</h4>
+          <p>Final presentation of the completed system and an individual viva assessing each member's contribution.</p>
+          <p class="ms-marks"><strong>Marks Allocated :</strong> <span class="marks-val">TBC</span><span class="status upcoming">Upcoming</span></p>
+          <div class="ms-progress" aria-hidden="true"><span class="pb-prev"></span><span class="pb-cur"></span></div>
+        </div>
+      </li>
+      <li class="ms" data-id="paper" data-marks="10">
+        <span class="ms-icon" aria-hidden="true"></span>
+        <div class="ms-copy">
+          <p class="ms-tag">Oct &ndash; Dec 2026</p>
+          <h4>Research Paper</h4>
+          <p>Research paper submission in October, and evidence of publication submitted in December.</p>
+          <p class="ms-marks"><strong>Marks Allocated :</strong> <span class="marks-val">TBC</span><span class="status upcoming">Upcoming</span></p>
+          <div class="ms-progress" aria-hidden="true"><span class="pb-prev"></span><span class="pb-cur"></span></div>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============================ DOCUMENTS ============================ -->
+<!-- To add a link: replace href="#" with the Google Drive / OneDrive share link and remove class="pending". -->
+<section id="documents" class="section alt">
+  <div class="wrap">
+    <p class="eyebrow">Documents</p>
+    <h2>Project documents</h2>
+    <p class="sec-lede">All documents produced for the project. Documents not yet submitted will be linked here once they are.</p>
+    <div class="doc-grid">
+      <article class="doc">
+        <div class="doc-head"><h4>Project Charter</h4><span class="pill">Group</span></div>
+        <p class="doc-date">Submitted &middot; Feb 2026</p>
+        <a class="charter-preview" href="docs/R26-DS-11_Project_Charter.jpg" target="_blank" rel="noopener">
+          <img src="docs/R26-DS-11_Project_Charter.jpg" alt="Project Charter Form Submission, 2026 Regular Batch: group R26-DS-011, Data Science, AIMS research cluster, supervisor Dr. Prasanna Sumathipala, co-supervisor Ms. Malithi Nawarathne" loading="lazy" width="1590" height="1600">
+        </a>
+        <ul class="doc-files">
+          <li><a href="docs/R26-DS-11_Project_Charter.jpg" target="_blank" rel="noopener"><span class="ft img">IMG</span>Project Charter form</a></li>
+        </ul>
+      </article>
+      <article class="doc">
+        <div class="doc-head"><h4>Project Proposal</h4><span class="pill">Individual</span></div>
+        <p class="doc-date">Submitted &middot; Mar 2026</p>
+        <ul class="doc-files">
+          <li><a href="docs/Proposal_IT22129758_Edirisinghe.pdf" target="_blank" rel="noopener"><span class="ft">PDF</span>Edirisinghe A.K. &ndash; IT22129758</a></li>
+          <li><a href="docs/Proposal_IT22644480_Thanseel.pdf" target="_blank" rel="noopener"><span class="ft">PDF</span>Thanseel S.M. &ndash; IT22644480</a></li>
+          <li><a href="docs/Proposal_IT22263476_Karunarathna.pdf" target="_blank" rel="noopener"><span class="ft">PDF</span>Karunarathna D.M.S.G. &ndash; IT22263476</a></li>
+          <li><a href="docs/Proposal_IT22504418_Siriwardena.pdf" target="_blank" rel="noopener"><span class="ft">PDF</span>Siriwardena A.N. &ndash; IT22504418</a></li>
+        </ul>
+      </article>
+      <article class="doc">
+        <div class="doc-head"><h4>Final Check List</h4><span class="pill">Group</span></div>
+        <p class="doc-date">Submitted &middot; Oct 2026</p>
+        <ul class="doc-files">
+          <li><a href="docs/R26-DS-11_Check_List_1.xlsx" download><span class="ft xlsx">XLSX</span>Check List 1 &ndash; Literature Review</a></li>
+          <li><a href="docs/R26-DS-11_Data_Analysis_Report.pdf" target="_blank" rel="noopener"><span class="ft">PDF</span>Data Analysis Report</a></li>
+          <li><a href="docs/R26-DS-11_Ethical_Analysis_Report.pdf" target="_blank" rel="noopener"><span class="ft">PDF</span>Ethical Analysis Report</a></li>
+          <li><a href="docs/R26-DS-11_MLOps_Report.pdf" target="_blank" rel="noopener"><span class="ft">PDF</span>MLOps Report</a></li>
+        </ul>
+      </article>
+      <article class="doc">
+        <div class="doc-head"><h4>Draft Thesis</h4><span class="pill">Group &amp; Individual</span></div>
+        <p class="doc-date upcoming">Due Oct 2026</p>
+        <ul class="doc-files">
+          <li><span class="file-pending">Group thesis &ndash; yet to be submitted</span></li>
+          <li><a href="docs/Final_Thesis_IT22129758_Edirisinghe.pdf" target="_blank" rel="noopener"><span class="ft">PDF</span>Edirisinghe A.K. &ndash; IT22129758</a></li>
+          <li><a href="docs/Draft_Thesis_IT22644480_Thanseel.pdf" target="_blank" rel="noopener"><span class="ft">PDF</span>Thanseel S.M. &ndash; IT22644480</a></li>
+          <li><a href="docs/Final_Thesis_IT22263476_Karunarathna.pdf" target="_blank" rel="noopener"><span class="ft">PDF</span>Karunarathna D.M.S.G. &ndash; IT22263476</a></li>
+          <li><a href="docs/Final_Thesis_IT22504418_Siriwardena.pdf" target="_blank" rel="noopener"><span class="ft">PDF</span>Siriwardena A.N. &ndash; IT22504418</a></li>
+        </ul>
+      </article>
+      <article class="doc">
+        <div class="doc-head"><h4>Logbook</h4><span class="pill">Individual</span></div>
+        <p class="doc-date upcoming">Due Oct 2026</p>
+        <ul class="doc-files">
+          <li><a href="docs/Logbook_IT22129758_Edirisinghe.pdf" target="_blank" rel="noopener"><span class="ft">PDF</span>Edirisinghe A.K. &ndash; IT22129758</a></li>
+          <li><a href="docs/Logbook_IT22644480_Thanseel.pdf" target="_blank" rel="noopener"><span class="ft">PDF</span>Thanseel S.M. &ndash; IT22644480</a></li>
+          <li><span class="file-pending">Karunarathna D.M.S.G. &ndash; yet to be submitted</span></li>
+          <li><a href="docs/Logbook_IT22504418_Siriwardena.pdf" target="_blank" rel="noopener"><span class="ft">PDF</span>Siriwardena A.N. &ndash; IT22504418</a></li>
+        </ul>
+      </article>
+      <article class="doc">
+        <div class="doc-head"><h4>Research Paper</h4><span class="pill">Individual</span></div>
+        <p class="doc-date upcoming">Due Oct 2026</p>
+        <ul class="doc-files">
+          <li><a href="docs/Research_Paper_IT22129758_Edirisinghe.pdf" target="_blank" rel="noopener" title="Affect- and Uncertainty-Aware Adaptive Multi-Agent Clarification for Multilingual Emergency Calls"><span class="ft">PDF</span>Edirisinghe A.K. &ndash; Affect- and Uncertainty-Aware Adaptive Multi-Agent Clarification for Multilingual Emergency Calls</a></li>
+          <li><a href="docs/Research_Paper_IT22644480_Thanseel.pdf" target="_blank" rel="noopener" title="Multimodal Urgency Detection for Sri Lankan Emergency Calls: Evaluating Simulated-to-Authentic Generalization"><span class="ft">PDF</span>Thanseel S.M. &ndash; Multimodal Urgency Detection for Sri Lankan Emergency Calls: Evaluating Simulated-to-Authentic Generalization</a></li>
+          <li><a href="docs/Research_Paper_IT22263476_Karunarathna.pdf" target="_blank" rel="noopener" title="A Hybrid LLM-Based Architecture for Multilingual Emergency SMS Triage in Sri Lanka"><span class="ft">PDF</span>Karunarathna D.M.S.G. &ndash; A Hybrid LLM-Based Architecture for Multilingual Emergency SMS Triage in Sri Lanka</a></li>
+          <li><a href="docs/Research_Paper_IT22504418_Siriwardena.pdf" target="_blank" rel="noopener" title="Joint Incident-History Matching for Multilingual Disaster Report Correlation"><span class="ft">PDF</span>Siriwardena A.N. &ndash; Joint Incident-History Matching for Multilingual Disaster Report Correlation</a></li>
+        </ul>
+      </article>
+      <article class="doc">
+        <div class="doc-head"><h4>Final Thesis</h4><span class="pill">Group &amp; Individual</span></div>
+        <p class="doc-date upcoming">Due Oct 2026</p>
+        <ul class="doc-files">
+          <li><span class="file-pending">Group thesis &ndash; yet to be submitted</span></li>
+          <li><a href="docs/Final_Thesis_IT22129758_Edirisinghe.pdf" target="_blank" rel="noopener"><span class="ft">PDF</span>Edirisinghe A.K. &ndash; IT22129758</a></li>
+          <li><a href="docs/Draft_Thesis_IT22644480_Thanseel.pdf" target="_blank" rel="noopener"><span class="ft">PDF</span>Thanseel S.M. &ndash; IT22644480</a></li>
+          <li><a href="docs/Final_Thesis_IT22263476_Karunarathna.pdf" target="_blank" rel="noopener"><span class="ft">PDF</span>Karunarathna D.M.S.G. &ndash; IT22263476</a></li>
+          <li><a href="docs/Final_Thesis_IT22504418_Siriwardena.pdf" target="_blank" rel="noopener"><span class="ft">PDF</span>Siriwardena A.N. &ndash; IT22504418</a></li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PRESENTATIONS ============================ -->
+<section id="presentations" class="section">
+  <div class="wrap">
+    <p class="eyebrow">Presentations</p>
+    <h2>Presentation slides</h2>
+    <p class="sec-lede">Slides used in past presentations, with space for the final presentation.</p>
+    <div class="doc-grid">
+      <article class="doc slide">
+        <div class="doc-head"><h4>Proposal Presentation</h4><span class="pill">Group</span></div>
+        <p class="doc-date">Presented &middot; Mar 2026</p>
+        <ul class="doc-files">
+          <li><a href="docs/R26-DS-11_Proposal_Presentation.pdf" target="_blank" rel="noopener"><span class="ft">PDF</span>View slides</a></li>
+        </ul>
+      </article>
+      <article class="doc slide">
+        <div class="doc-head"><h4>Progress Presentation 1</h4><span class="pill">Group</span></div>
+        <p class="doc-date">Presented &middot; May 2026</p>
+        <ul class="doc-files">
+          <li><a href="docs/R26-DS-11_Progress_Presentation_1.pdf" target="_blank" rel="noopener"><span class="ft">PDF</span>View slides</a></li>
+        </ul>
+      </article>
+      <article class="doc slide">
+        <div class="doc-head"><h4>Progress Presentation 2</h4><span class="pill">Group</span></div>
+        <p class="doc-date">Presented &middot; Aug &ndash; Sep 2026</p>
+        <ul class="doc-files">
+          <li><a href="docs/R26-DS-11_Progress_Presentation_2.pdf" target="_blank" rel="noopener"><span class="ft">PDF</span>View slides</a></li>
+        </ul>
+      </article>
+      <article class="doc slide">
+        <div class="doc-head"><h4>Final Presentation</h4><span class="pill">Group</span></div>
+        <p class="doc-date upcoming">Oct 2026</p>
+        <a href="#" class="dl pending">Yet to be presented</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ ABOUT US ============================ -->
+<section id="about" class="section alt team-classic">
+  <div class="wrap">
+    <p class="eyebrow">About Us</p>
+    <h2>Meet our team</h2>
+
+    <div class="team-sup">
+      <article class="person sup">
+        <img src="assets/img/team/supervisor.jpg" alt="Dr. Prasanna Sumathipala" loading="lazy" width="400" height="400">
+        <div>
+          <h4>Dr. Prasanna Sumathipala</h4>
+          <p class="role">Supervisor</p>
+          <p class="org">Sri Lanka Institute of Information Technology</p>
+          <a class="mail" href="mailto:prasanna.s@sliit.lk">prasanna.s@sliit.lk</a>
+        </div>
+      </article>
+      <article class="person sup">
+        <img src="assets/img/team/cosupervisor.jpg" alt="Ms. Malithi Nawarathne" loading="lazy" width="400" height="400">
+        <div>
+          <h4>Ms. Malithi Nawarathne</h4>
+          <p class="role">Co-Supervisor</p>
+          <p class="org">Sri Lanka Institute of Information Technology</p>
+          <a class="mail" href="mailto:malithi.n@sliit.lk">malithi.n@sliit.lk</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="team">
+      <article class="person">
+        <img src="assets/img/team/edirisinghe.jpg" alt="Amanda Edirisinghe" loading="lazy" width="400" height="400">
+        <h4>Amanda Edirisinghe</h4>
+        <p class="it">IT22129758</p>
+        <p class="dept">Department of Data Science</p>
+        <p class="role"><span class="comp-badge sm c1">C1</span> Multilingual Emergency Conversational AI System for Rapid Clarification</p>
+        <a class="mail" href="mailto:IT22129758@my.sliit.lk">IT22129758@my.sliit.lk</a>
+      </article>
+      <article class="person">
+        <img src="assets/img/team/thanseel.jpg" alt="Shilma Thanseel" loading="lazy" width="400" height="400">
+        <h4>Shilma Thanseel</h4>
+        <p class="it">IT22644480</p>
+        <p class="dept">Department of Data Science</p>
+        <p class="role"><span class="comp-badge sm c2">C2</span> Multimodal Urgency Detection Using Prosodic and Conversational Cues</p>
+        <a class="mail" href="mailto:IT22644480@my.sliit.lk">IT22644480@my.sliit.lk</a>
+      </article>
+      <article class="person">
+        <img src="assets/img/team/karunarathna.jpg" alt="Gawrangana Karunarathna" loading="lazy" width="400" height="400">
+        <h4>Gawrangana Karunarathna</h4>
+        <p class="it">IT22263476</p>
+        <p class="dept">Department of Data Science</p>
+        <p class="role"><span class="comp-badge sm c3">C3</span> Low-Bandwidth SMS Emergency Intelligence for Disaster Response</p>
+        <a class="mail" href="mailto:IT22263476@my.sliit.lk">IT22263476@my.sliit.lk</a>
+      </article>
+      <article class="person">
+        <img src="assets/img/team/siriwardena.jpg" alt="Amandhi Navoda Siriwardena" loading="lazy" width="400" height="400">
+        <h4>Amandhi Navoda Siriwardena</h4>
+        <p class="it">IT22504418</p>
+        <p class="dept">Department of Data Science</p>
+        <p class="role"><span class="comp-badge sm c4">C4</span> Multi-Source Urgency-Based Incident Fusion, Unified Incident Records and Real-Time Operator Dashboard</p>
+        <a class="mail" href="mailto:IT22504418@my.sliit.lk">IT22504418@my.sliit.lk</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CONTACT US ============================ -->
+<!-- Layout follows the CocoRemedy site: form on the left, short contact details on the right. -->
+<section id="contact" class="section contact-coco">
+  <div class="wrap">
+    <p class="eyebrow">Contact Us</p>
+    <h2>Get in Touch</h2>
+    <div class="contact-grid">
+      <form class="contact-form" id="contact-form">
+        <div class="form-group">
+          <label for="cf-name">Name</label>
+          <input id="cf-name" name="name" type="text" placeholder="John Doe" required autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="cf-email">Email address</label>
+          <input id="cf-email" name="email" type="email" placeholder="name@example.com" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="cf-message">Message or Query</label>
+          <textarea id="cf-message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-submit">Submit</button>
+        <p id="form-status" class="form-status" role="status" aria-live="polite" hidden></p>
+      </form>
+      <div class="contact-details">
+        <div>
+          <p><strong>Contact Details</strong></p>
+          <p>For further queries please reach us at <a href="mailto:sahaya.researchteam@gmail.com">sahaya.researchteam@gmail.com</a></p>
+          <p>Hope this project helped you in some manner. Thank you!</p>
+          <p>-Team Sahaya</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <p><strong>Sahaya</strong> &middot; R26-DS-11 &middot; AI Based Emergency Call and SMS Triage System for Disaster Response in Sri Lankan Low Resource Local Languages</p>
+    <p>BSc (Hons) in Information Technology Specializing in Data Science &middot; SLIIT &middot; 2026</p>
+    <a href="#top" class="to-top">Back to top &uarr;</a>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
