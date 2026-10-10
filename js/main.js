@@ -128,7 +128,11 @@
     } catch (err) {
       const mail = 'mailto:' + INBOX + '?subject=' + encodeURIComponent('[Sahaya website] Query from ' + f.name.value) +
         '&body=' + encodeURIComponent(f.message.value + '\n\n' + f.name.value + '\n' + f.email.value);
-      showStatus('err', '<strong>Sorry, your message could not be sent.</strong> Please check your internet connection and try again, or <a href="' +
+      const reason = String(err && err.message || '');
+      const detail = reason && reason !== 'send failed' && !/Failed to fetch|NetworkError|Load failed/i.test(reason)
+        ? ' <br><small>Reason: ' + reason.replace(/[<>&]/g, '') + '</small>'
+        : ' Please check your internet connection and try again.';
+      showStatus('err', '<strong>Sorry, your message could not be sent.</strong>' + detail + ' You can also <a href="' +
         mail + '">e-mail us directly</a>.');
     } finally {
       submitBtn.disabled = false;
